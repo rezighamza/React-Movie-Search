@@ -15,6 +15,7 @@ const App = () => {
         fetch(`${API_URL}&s=batman`)
             .then(response => response.json())
             .then(jsonResponse => {
+                jsonResponse.Search.sort((a, b) => (a.Year < b.Year) ? 1 : -1)
                 setMovies(jsonResponse.Search)
                 setLoading(false)
             })
@@ -26,6 +27,7 @@ const App = () => {
         fetch(`${API_URL}&s=${search}`)
             .then(response => response.json())
             .then(jsonResponse => {
+                jsonResponse.Search.sort((a, b) => (a.Year < b.Year) ? 1 : -1)
                 setMovies(jsonResponse.Search)
                 setLoading(false)
             })
